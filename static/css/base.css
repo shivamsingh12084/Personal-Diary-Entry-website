@@ -1,3 +1,45 @@
 h1 {
     color: Red;
 }
+.nav-container {
+    background: url('/static/images/diary.jpg');
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+    background-position: 0 0;
+    min-height: auto;
+    filter: brightness(90%);
+}
+.main-heading-text {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    color: #FFFAFA;
+}
+.nav-text-margin {
+    margin-top: 8rem;
+}
+.main-heading-subheading-text {
+    font-weight: 500;
+    color: #FFFAFA;
+}
+.mx-4 {
+    margin-right:10rem!important;margin-left:10rem!important;
+}
+
+
+
+.text-content {
+    font-size: large;
+}
+.text-content-main {
+    color: rgb(17, 3, 3);
+    font-weight: 400;
+}
+.bg-color {
+    background-color: darkgrey;
+}
+.bg-color-text {
+    font-size: x-large;
+    margin-top: 0;
+}

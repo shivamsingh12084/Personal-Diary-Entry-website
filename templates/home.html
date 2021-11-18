@@ -1,15 +1,139 @@
 {% extends '_base.html' %}
+{% load static %}
+
 
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-    <h1>Homepage</h1>
+
+
+
+<div class="container-fluid nav-container">
     {% if user.is_authenticated %}
         Hi {{ user.email }}
         <p><a href="{% url 'account_logout' %}">Log Out</a></p>
     {% else %}
-        <p>You are not logged in </p>
+    <ul class="nav nav-pills justify-content-end ">
+      <li class="nav-item">
+        <a class="nav-link link-light" href="{% url 'account_login' %}">Login</a>
+      </li>
+      <li class="nam-item">
+        <a class="nav-link link-light" href="{% url 'account_signup' %}">SignUp</a>
+      </li>
+    </ul>
+    <figure class="text-center nav-text-margin">
+        <blockquote class="blockquote">
+          <p class="display-1 main-heading-text ">Learning Logs</p>
+          <p></p>
+          <p class="display-5 main-heading-subheading-text ">“Writing is my way of expressing – and thereby eliminating – all 
+              <span><p class="display-5 main-heading-subheading-text">the various ways we can be wrong-headed</p></span>”</p>
+        </blockquote>
+        <figcaption class="blockquote-footer main-heading-text">
+            <h4>Zadie Smith</h4> <cite title="Source Title"></cite>
+        </figcaption>
+      </figure>
+      <div class="d-flex flex-row bd-highlight mb-3 justify-content-center nav-text-margin">
+        <div class="p-2 bd-highlight "><button type="button" class="btn btn-secondary btn-lg">Start Your Free Journal Now!</button></div>
+      </div>
+</div>
+
+
+<!-- Main Paragraph -->
+    <div class="d-flex justify-content-center">
+        <h3>What are you writing for?</h3>
+    </div>
+    <p class="text-center text-content">
+      Whether you’re looking for a tool to record your daily emotions and activities in a reflective
+      <br>journal, keep track of milestones in a food diary or pregnancy journal, or even record your 
+      <br>dreams in a dream journal, Learning Logs has you covered. 
+    </p>
+    <div class="d-flex justify-content-center">
+      <button type="button" class="btn btn-secondary">Get Started</button>
+    </div>
+
+<!--Main Grid Goes here -->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 align-self-center">
+          <h3>Privacy is our #1 Concern</h3>
+          <h5 class="text-content-main">Even when carefully kept, paper journals can be read by anyone who happens upon them. Penzu keeps your journals safe with double password protection and military strength encryption so you can rest easy knowing that your entries are secure in the Penzu Vault.</h5>
+
+        </div>
+        <div class="col-sm-4">
+          <img src="{% static 'images/encryption.jpg' %}" class="img-fluid" alt="...">
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+          <img src="{% static 'images/device.jpg' %}" class="img-fluid" alt="...">
+        </div>
+        <div class="col-sm-4 align-self-center">
+          <h3>Write from Anywhere</h3>
+          <h5 class="text-content-main ">Take your journals wherever you go with the Penzu mobile apps for iPhone, iPad, and Android phones and tablets.</h5>
+        </div>
+      </div>
+    </div>
+
+<!-- Functionalities goes here -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 ">
+          
+        </div>
+        <div class="col-sm-2  ">
+          
+          <p class="text-center"><img src="{% static 'images/private.png' %}" class="img-fluid" alt="..."></p>
+          <p class="text-center bg-color-text">100% Private</p>
+        </div>
+        <div class="col-sm-2">
+          <p class="text-center"><img src="{% static 'images/available.png' %}" class="img-fluid" alt="..."></p>
+          <p class="text-center bg-color-text">Available Everywhere</p>
+        </div>
+        <div class="col-sm-2 ">
+          <p class="text-center"><img src="{% static 'images/never_forgot.png' %}" class="img-fluid" alt="..."></p>
+          <p class="text-center bg-color-text">Never forger to write</p>
+        </div>
+        <div class="col-sm-3">
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3 ">
+          
+        </div>
+        <div class="col-sm-2  ">
+          
+          <p class="text-center"><img src="{% static 'images/logo.png' %}" class="img-fluid" alt="..."></p>
+          <p class="text-center bg-color-text">Fully Customizable Diary</p>
+        </div>
+        <div class="col-sm-2">
+          <p class="text-center"><img src="{% static 'images/smartjournal.png' %}" class="img-fluid" alt="..."></p>
+          <p class="text-center bg-color-text">Smart Journal Search</p>
+        </div>
+        <div class="col-sm-2 ">
+          <p class="text-center"><img src="{% static 'images/logo.png' %}" class="img-fluid" alt="..."></p>
+          <p class="text-center bg-color-text">Military Grade Security</p>
+        </div>
+        <div class="col-sm-3">
+
+        </div>
+      </div>
+    </div>
+    
+    
+    {% endif %} 
+    <!--
+        <h1>Homepage</h1>
+    {% if user.is_authenticated %}
+        Hi {{ user.email }}
+        <p><a href="{% url 'account_logout' %}">Log Out</a></p>
+    {% else %}
+        <p>You are not logged in  </p>
         <a href="{% url 'account_login' %}">Log In</a>
         <a href="{% url 'account_signup' %}">Sign Up</a>
     {% endif %}
+    -->
+    
 {% endblock content %}
