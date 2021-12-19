@@ -46,11 +46,12 @@ INSTALLED_APPS = [
     'crispy_forms',
     'allauth',
     'allauth.account',
+    'sass_processor',
     # Local
     'accounts',
     'pages',
+    'personal_diary',
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -132,7 +133,9 @@ STATIC_ROOT = (str(BASE_DIR.joinpath('staticfiles')))
 STATICFILES_FINDERS = [ 
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "sass_processor.finders.CssFinder",
 ]
+SASS_PROCESSOR_ROOT = (str(BASE_DIR.joinpath("static")))
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -145,7 +148,7 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Django-allauth config
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'title_list'
 ACCOUNT_LOGOUT_REDIRECT = 'home' # new
 SITE_ID = 1 # new
 AUTHENTICATION_BACKENDS = (

@@ -1,0 +1,21 @@
+{% extends '_base.html' %}
+
+{% load static %}
+
+{% block title  %}Title Detail{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <h2><a href="#">{{title_detail.title}}</a></h2>
+        <p>{{title_detail.content}}</p>
+        <p>{{title_detail.date_posted}}</p>
+        <p>{{title_detail.author}}</p>
+        {% if title_detail.author == user %}
+            <a href="{% url 'title_update' title_detail.id %}">Udate</a>
+            <a href="{% url 'title_delete' title_detail.id %}">Delete</a>
+            <a href="{% url 'title_list' %}">Home</a>
+
+
+        {% endif %}
+    </div>
+{% endblock content %}
