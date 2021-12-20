@@ -44,8 +44,11 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     # Third Party
     'crispy_forms',
-    'allauth',
-    'allauth.account',
+    'allauth', # new
+    'allauth.account', # new
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.google',
     'sass_processor',
     # Local
     'accounts',
@@ -150,11 +153,28 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Django-allauth config
 LOGIN_REDIRECT_URL = 'title_list'
 ACCOUNT_LOGOUT_REDIRECT = 'home' # new
-SITE_ID = 1 # new
+
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend', # new
 )
+SITE_ID = 3# new
+
+# Google authentication
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'acess_type': 'online',
+        }
+    }
+}
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # new
 ACCOUNT_SESSION_REMEMBER = True # new
 ACCOUNT_USERNAME_REQUIRED = False # new

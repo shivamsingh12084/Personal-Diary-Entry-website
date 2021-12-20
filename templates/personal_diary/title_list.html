@@ -5,6 +5,7 @@
 {% block title %}Title List{% endblock title %}
 
 {% block content %}
+
     
     <div class="container">
         <div class="px-4 py-5 my-5 text-center">
@@ -24,14 +25,20 @@
     {% for title in title_list %}
         <div class="container mt-5">
             <h2>{{ title.title|title}}</h2>
+            <span class="meta">
+                Posted by <strong>{{title.author}}</strong> on {{title.date_posted}}
+              </span>
+            
             <h5>{{title.content|truncatechars:65}}</h5>
-            <a href="{% url 'title_detail' title.id %}" class="link-primary">View more></a>
+            <a href="{% url 'title_detail' title.id %}" class="link-primary">READ MORE ></a>
             <div class="mt-5"></div>
             <strong class="d-block h6 my-2 pb-2 border-bottom"></strong>
         </div>
         
         
     {% endfor %}
+
+    
 
 
     <!--

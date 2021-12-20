@@ -5,7 +5,40 @@
 {% block title  %}Title Detail{% endblock title %}
 
 {% block content %}
-    <div class="container">
+
+<main class="container">
+  <h1>{{title_detail.title|title}}</h1>
+  <span class="meta">
+    Posted by <strong>{{title_detail.author}}</strong> on {{title_detail.date_posted}}
+  </span>
+  <p class="fs-5 col-md-12 mt-3">{{title_detail.content}}</p>
+
+  <div class="mb-5">
+    {% if title_detail.author == user %}
+          <a href="{% url 'title_update' title_detail.id %}" class="btn btn-primary btn-lg px-4">Update</a>
+          <a href="{% url 'title_delete' title_detail.id %}" class="btn btn-primary btn-lg px-4">Delete</a>
+            
+
+
+    {% endif %}
+    
+  </div>
+  
+
+  <hr class="col-3 col-md-2 mb-5">
+
+  
+
+    
+  </div>
+  
+</main>
+<div class="container height"></div>
+
+
+
+    <!--
+      <div class="container">
         <h2><a href="#">{{title_detail.title}}</a></h2>
         <p>{{title_detail.content}}</p>
         <p>{{title_detail.date_posted}}</p>
@@ -18,4 +51,6 @@
 
         {% endif %}
     </div>
+
+    -->
 {% endblock content %}
